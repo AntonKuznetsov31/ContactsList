@@ -29,35 +29,36 @@ class ContactsListViewModel: ViewModel {
     }
     
     func pullToRefresh() {
-        fetchContactsFromNetwork()
+        getContactsFromNetwork()
     }
     
-    func fetchContactsFromNetwork() {
-        view.contactsListTableView.isHidden = true
+    func getContactsFromNetwork() {
         do {
             try coreData.deleteAllContacts()
         } catch {
             print("CoreData deleting error!")
         }
         
-        networkManager.getContacts { contacts in
+        networkManager.getContacts { (contacts) in
             let contactsListModel = self.convertContactsForCD(contacts: contacts)
             self.contacts = contactsListModel
+            //try coreData.context.save()
             self.view.reloadTableView()
-            self.view.contactsListTableView.isHidden = false
         }
     }
     
     // проверяем пустая ли CoreData, если пустая - берем данные с сервера
     // если не пустая - берем данные из CoreData
-    func launchFetchContacts() {
+    func launchFetchContacts() throws {
         guard let isCoreDataEmpty = coreData.isCoreDataEmpty() else {
             print("CoreData fetching error!")
             return }
         if isCoreDataEmpty {
-            fetchContactsFromNetwork()
+            getContactsFromNetwork()
         } else {
-            self.contacts = coreData.loadAllContacts()
+            coreData.loadAllContacts { (contacts) in
+                self.contacts = contacts
+            }
         }
         self.view.reloadTableView()
     }

@@ -22,11 +22,17 @@ class ContactsListViewController: BaseViewController<ContactsListViewModel>, Con
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
-        viewModel.launchFetchContacts()
+        do {
+            try viewModel.launchFetchContacts()
+        } catch {
+            print("CoreData loading error")
+            print(error.localizedDescription)
+        }
         contactsListTableView.refreshControl?.addTarget(self, action: #selector(tableViewWasPulled), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         reloadTableView()
     }
     

@@ -6,7 +6,7 @@ import CoreData
 protocol CoreDataStack {
     var context: NSManagedObjectContext { get }
     func isCoreDataEmpty() -> Bool?
-    func loadAllContacts() -> [ContactModel]
+    func loadAllContacts(completion: @escaping ([ContactModel]) -> Void) -> ()
     func deleteAllContacts()throws
 }
 
@@ -24,7 +24,7 @@ class CoreDataStackImpl: CoreDataStack {
     // проверяем есть ли в CoreData элементы
     func isCoreDataEmpty() -> Bool? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ContactModel")
-        var results : Array<Any>?
+        var results: Array<Any>?
         
         do {
             results = try context.fetch(fetchRequest) as! [NSManagedObject]
@@ -37,10 +37,10 @@ class CoreDataStackImpl: CoreDataStack {
     }
     
     // получаем все контакты из CoreData
-    func loadAllContacts() -> [ContactModel] {
+    func loadAllContacts(completion: @escaping ([ContactModel]) -> Void) -> () {
         var contacts = [ContactModel]()
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ContactModel")
-        let sort = NSSortDescriptor(key: "id", ascending: false)
+        let sort = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sort]
         do {
             contacts = try context.fetch(fetchRequest) as! [ContactModel]
@@ -48,15 +48,30 @@ class CoreDataStackImpl: CoreDataStack {
             print("CoreData fetching error!")
             print(error.localizedDescription)
         }
-        return contacts
+        completion (contacts)
     }
     
     // удаляем все элементы из CoreData
     func deleteAllContacts() throws {
-        let fetchRequest = ContactModel.fetchRequest() as NSFetchRequest<NSFetchRequestResult>
-
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        try self.context.execute(deleteRequest)
-        //try self.context.save()
+        let isEmpty = isCoreDataEmpty()
+        if isEmpty == false {
+            let fetchRequest = ContactModel.fetchRequest() as NSFetchRequest<NSFetchRequestResult>
+            
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            
+            do {
+                try self.context.execute(deleteRequest)
+            } catch {
+                print("CoreData deleting error!")
+                print(error.localizedDescription)
+            }
+            
+            do {
+                try self.context.save()
+            } catch {
+                print("CoreData saving error")
+                print(error.localizedDescription)
+            }
+        }
     }
 }
