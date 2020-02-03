@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Contact Details View Controller-->
+        <scene sceneID="zCo-06-al8">
+            <objects>
+                <viewController storyboardIdentifier="ContactDetailsViewController" id="SOv-Rc-K6f" customClass="ContactDetailsViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HgV-54-xu6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="EMAIL" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BPR-cK-hP1">
+                                <rect key="frame" x="45.5" y="177.5" width="323" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CvW-9x-b5x" customClass="ImageView" customModule="Contacts" customModuleProvider="target">
+                                <rect key="frame" x="45.5" y="225.5" width="323" height="323"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CvW-9x-b5x" secondAttribute="height" multiplier="1:1" id="mNi-dH-WEO"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SURNAME" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d5f-d4-vbL">
+                                <rect key="frame" x="45.5" y="129.5" width="323" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="family-name"/>
+                            </textField>
+                            <textField opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="NAME" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3qh-6h-lBI">
+                                <rect key="frame" x="45.5" y="81.5" width="323" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BPR-cK-hP1" firstAttribute="centerX" secondItem="U7D-JF-zcn" secondAttribute="centerX" id="0HE-NK-5yx"/>
+                            <constraint firstItem="CvW-9x-b5x" firstAttribute="top" secondItem="BPR-cK-hP1" secondAttribute="bottom" constant="8" id="5VD-ma-25J"/>
+                            <constraint firstItem="CvW-9x-b5x" firstAttribute="centerY" secondItem="U7D-JF-zcn" secondAttribute="centerY" id="7gm-6N-iFx"/>
+                            <constraint firstItem="3qh-6h-lBI" firstAttribute="width" secondItem="d5f-d4-vbL" secondAttribute="width" id="Ljj-XB-m5C"/>
+                            <constraint firstItem="CvW-9x-b5x" firstAttribute="centerX" secondItem="U7D-JF-zcn" secondAttribute="centerX" id="Zgr-Qj-ioZ"/>
+                            <constraint firstItem="BPR-cK-hP1" firstAttribute="width" secondItem="CvW-9x-b5x" secondAttribute="width" id="boG-bh-v41"/>
+                            <constraint firstItem="3qh-6h-lBI" firstAttribute="centerX" secondItem="U7D-JF-zcn" secondAttribute="centerX" id="cbF-oZ-KS6"/>
+                            <constraint firstItem="CvW-9x-b5x" firstAttribute="height" secondItem="HgV-54-xu6" secondAttribute="height" multiplier="0.4" id="hnD-s1-Uhr"/>
+                            <constraint firstItem="d5f-d4-vbL" firstAttribute="centerX" secondItem="U7D-JF-zcn" secondAttribute="centerX" id="o9q-k3-BO7"/>
+                            <constraint firstItem="d5f-d4-vbL" firstAttribute="top" secondItem="3qh-6h-lBI" secondAttribute="bottom" constant="8" id="oxn-w1-TGz"/>
+                            <constraint firstItem="d5f-d4-vbL" firstAttribute="width" secondItem="CvW-9x-b5x" secondAttribute="width" id="qGe-tC-yt2"/>
+                            <constraint firstItem="BPR-cK-hP1" firstAttribute="top" secondItem="d5f-d4-vbL" secondAttribute="bottom" constant="8" id="qsK-6h-wtV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U7D-JF-zcn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VJK-vV-YFI"/>
+                    <connections>
+                        <outlet property="contactEmailTextField" destination="BPR-cK-hP1" id="7Us-wE-tEI"/>
+                        <outlet property="contactImage" destination="CvW-9x-b5x" id="D9f-nQ-Ni2"/>
+                        <outlet property="contactNameTextField" destination="3qh-6h-lBI" id="vhf-qh-9ez"/>
+                        <outlet property="contactSurnameTextField" destination="d5f-d4-vbL" id="Q2N-W6-iDa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J3C-aA-VM3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-364" y="37"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QsX-S5-3qe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dYi-wF-609" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ouD-lo-o15">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SOv-Rc-K6f" kind="relationship" relationship="rootViewController" id="u2b-Or-Cwj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hwl-6F-Ui0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1162.3188405797102" y="36.830357142857139"/>
+        </scene>
+    </scenes>
+</document>
