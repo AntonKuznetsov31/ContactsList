@@ -12,10 +12,21 @@ class ContactDetailsViewController: BaseViewController<ContactDetailsViewModel>,
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
+        textFieldSettings()
+    }
+    
+    func textFieldSettings() {
         guard let contact = viewModel.contact else { return }
         contactNameTextField.delegate = self
         contactSurnameTextField.delegate = self
         contactEmailTextField.delegate = self
+        
+        contactNameTextField.textContentType = .name
+        contactSurnameTextField.textContentType = .name
+        contactEmailTextField.textContentType = .emailAddress
+        
+        contactNameTextField.autocapitalizationType = .words
+        contactSurnameTextField.autocapitalizationType = .words
         
         contactNameTextField.text = contact.name
         contactSurnameTextField.text = contact.surname

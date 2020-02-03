@@ -35,16 +35,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bDT-gg-t2v">
-                                                    <rect key="frame" x="106" y="34" width="134" height="52"/>
+                                                    <rect key="frame" x="106" y="34" width="288" height="52"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFY-fJ-PlY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="134" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATs-yn-7iz">
-                                                            <rect key="frame" x="0.0" y="28" width="134" height="24"/>
+                                                            <rect key="frame" x="0.0" y="28" width="288" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -53,6 +53,7 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="bDT-gg-t2v" secondAttribute="trailing" constant="20" id="0MN-Q5-3ze"/>
                                                 <constraint firstItem="0fx-L5-XzG" firstAttribute="centerY" secondItem="TWq-hG-719" secondAttribute="centerY" id="61T-np-fFg"/>
                                                 <constraint firstItem="0fx-L5-XzG" firstAttribute="top" secondItem="TWq-hG-719" secondAttribute="top" constant="21" id="6by-ZD-K0f"/>
                                                 <constraint firstItem="0fx-L5-XzG" firstAttribute="leading" secondItem="TWq-hG-719" secondAttribute="leading" constant="20" id="AwF-ms-eLR"/>
