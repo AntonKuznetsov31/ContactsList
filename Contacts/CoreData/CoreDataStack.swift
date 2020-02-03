@@ -57,6 +57,6 @@ class CoreDataStackImpl: CoreDataStack {
 
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         try self.context.execute(deleteRequest)
-        try self.context.save()
+        //try self.context.save()
     }
 }
