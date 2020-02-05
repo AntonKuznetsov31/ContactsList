@@ -61,15 +61,9 @@ class CoreDataStackImpl: CoreDataStack {
             
             do {
                 try self.context.execute(deleteRequest)
-            } catch {
-                print("CoreData deleting error!")
-                print(error.localizedDescription)
-            }
-            
-            do {
                 try self.context.save()
             } catch {
-                print("CoreData saving error")
+                print("CoreData deleting error!")
                 print(error.localizedDescription)
             }
         }

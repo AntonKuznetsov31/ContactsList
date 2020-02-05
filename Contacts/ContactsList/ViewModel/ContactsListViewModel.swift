@@ -42,7 +42,6 @@ class ContactsListViewModel: ViewModel {
         networkManager.getContacts { (contacts) in
             let contactsListModel = self.convertContactsForCD(contacts: contacts)
             self.contacts = contactsListModel
-            //try coreData.context.save()
             self.view.reloadTableView()
         }
     }
@@ -55,6 +54,7 @@ class ContactsListViewModel: ViewModel {
             return }
         if isCoreDataEmpty {
             getContactsFromNetwork()
+            try coreData.context.save()
         } else {
             coreData.loadAllContacts { (contacts) in
                 self.contacts = contacts

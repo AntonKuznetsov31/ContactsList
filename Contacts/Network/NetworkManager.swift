@@ -9,9 +9,10 @@ class NetworkManagerImpl: NetworkManager {
     // MARK: - Public Methods
     
     func getContacts(completion: @escaping ([Contact]) ->  () )  {
-        let url = "https://api.mockaroo.com/api/41444880"
-        let key = "12cd76f0"
-        let count = "10"
+        let url = "https://api.mockaroo.com/api/30600730"
+        //let url = "https://api.mockaroo.com/api/41444880"
+        let key = "ba104fe0"
+        let count = "3"
         let urlMain = "\(url)?count=\(count)&key=\(key)"
         Alamofire
             .request(urlMain, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil)
